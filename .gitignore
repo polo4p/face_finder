@@ -1,4 +1,5 @@
-#Ignore the personal data
+#Ignore the personnal data
 
 faces/*
 processed/*
+to_process/*
