@@ -15,7 +15,7 @@ ap.add_argument("-u", "--upsample", type=int, default=1,
 	help="# of times to upsample")
 args = vars(ap.parse_args())
 
-print('[INFO] Importing pretrained models...')
+print('[INFO] Importing pretrained models')
 pose_predictor_68_point = dlib.shape_predictor("pretrained_model/shape_predictor_68_face_landmarks.dat")
 face_encoder = dlib.face_recognition_model_v1("pretrained_model/dlib_face_recognition_resnet_model_v1.dat")
 if args["model"] == 'CNN':
@@ -55,7 +55,7 @@ def sort_by_face(frame, known_face_encodings, known_face_names):
     for face_encoding in face_encodings_list:
         # Check distances between the detected and known faces
         vectors = np.linalg.norm(known_face_encodings - face_encoding, axis=1)
-        tolerance = 0.6
+        tolerance = 0.55
         faces_detected=vectors<= tolerance
         if faces_detected.any():
             name = known_face_names[np.argmin(vectors)]

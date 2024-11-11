@@ -1,0 +1,3 @@
+#Ignore the personnal data of the folder
+*
+!.gitignore
